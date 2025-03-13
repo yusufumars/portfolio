@@ -29,6 +29,8 @@ nav ul li a:hover {
 /* Section Styling */
 section {
     padding: 4rem 0;
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0; /* Ensure sections are initially hidden for fade-in effect */
 }
 
 /* Profile Image Styling */
@@ -38,6 +40,7 @@ section {
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    animation: bounceIn 1s ease-out forwards;
 }
 
 /* Certification Badges */
@@ -46,6 +49,7 @@ section {
     height: 80px;
     object-fit: contain;
     margin: 10px auto;
+    animation: zoomIn 1s ease-out forwards;
 }
 
 /* Grid Layouts */
@@ -61,6 +65,34 @@ section {
     gap: 20px;
 }
 
+/* Experience Section */
+.experience-item {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.experience-item h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #111827;
+}
+
+.experience-item p {
+    color: #6B7280; /* Tailwind Gray-500 */
+}
+
+.experience-item ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+.experience-item ul li {
+    margin-bottom: 0.5rem;
+}
+
 /* Contact Section */
 .contact-links a {
     color: #1D4ED8;
@@ -72,3 +104,36 @@ section {
     color: #2563EB; /* Tailwind Blue-600 */
 }
 
+/* Keyframes for Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
