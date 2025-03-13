@@ -1,3 +1,5 @@
+### Updated CSS with Animations
+```css name=styles.css
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
@@ -18,11 +20,6 @@ body {
 }
 
 /* Navbar Styling */
-header {
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 nav ul li a {
     transition: color 0.3s ease-in-out;
 }
@@ -109,12 +106,6 @@ section {
     color: #2563EB; /* Tailwind Blue-600 */
 }
 
-/* Footer Styling */
-footer {
-    background-color: #1F2937; /* Tailwind Gray-800 */
-    color: #F9FAFB; /* Tailwind Gray-100 */
-}
-
 /* Keyframes for Animations */
 @keyframes fadeIn {
     from {
@@ -148,3 +139,56 @@ footer {
         transform: scale(1);
     }
 }
+```
+
+### JavaScript Code (No changes needed)
+The JavaScript code you provided already handles the smooth scrolling and fade-in effect using IntersectionObserver, which works perfectly with the CSS classes and animations defined above. Here it is for reference:
+
+```javascript name=script.js
+"use strict";
+
+document.addEventListener("DOMContentLoaded", function () {
+    var navLinks = document.querySelectorAll("nav ul li a");
+    var sections = document.querySelectorAll("section");
+    var observer;
+
+    // Smooth scrolling
+    for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener("click", function (event) {
+            event.preventDefault();
+            var targetId = this.getAttribute("href").substring(1);
+            var targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 60,
+                    behavior: "smooth"
+                });
+            }
+        });
+    }
+
+    // Section fade-in effect
+    if (typeof IntersectionObserver !== "undefined") {
+        observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        }, { threshold: 0.3 });
+
+        for (var j = 0; j < sections.length; j++) {
+            observer.observe(sections[j]);
+        }
+    }
+
+    // Dynamic year update
+    var yearSpan = document.getElementById("currentYear");
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+});
+```
+
+This combination of updated CSS and the provided JavaScript will create a lively, animated portfolio website.
