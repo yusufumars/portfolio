@@ -1,10 +1,9 @@
-### Updated CSS with Animations
-```css name=styles.css
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f9fafb;
     color: #111827;
+    transition: background-color 0.3s ease-in-out;
 }
 
 /* Smooth fade-in effect */
@@ -20,19 +19,26 @@ body {
 }
 
 /* Navbar Styling */
+header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
 nav ul li a {
     transition: color 0.3s ease-in-out;
 }
 
 nav ul li a:hover {
-    color: #1D4ED8; /* Tailwind Blue-700 */
+    color: #1D4ED8;
 }
 
 /* Section Styling */
 section {
     padding: 4rem 0;
-    animation: fadeIn 1s ease-out forwards;
-    opacity: 0; /* Ensure sections are initially hidden for fade-in effect */
 }
 
 /* Profile Image Styling */
@@ -45,13 +51,20 @@ section {
     animation: bounceIn 1s ease-out forwards;
 }
 
-/* Certification Badges */
-.certification-badge {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    margin: 10px auto;
-    animation: zoomIn 1s ease-out forwards;
+/* Timeline Experience Section */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+.timeline-item {
+    background: white;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out forwards;
 }
 
 /* Grid Layouts */
@@ -67,34 +80,6 @@ section {
     gap: 20px;
 }
 
-/* Experience Section */
-.experience-item {
-    background-color: #ffffff;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.experience-item h3 {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #111827;
-}
-
-.experience-item p {
-    color: #6B7280; /* Tailwind Gray-500 */
-}
-
-.experience-item ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
-}
-
-.experience-item ul li {
-    margin-bottom: 0.5rem;
-}
-
 /* Contact Section */
 .contact-links a {
     color: #1D4ED8;
@@ -103,7 +88,15 @@ section {
 }
 
 .contact-links a:hover {
-    color: #2563EB; /* Tailwind Blue-600 */
+    color: #2563EB;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #1F2937;
+    color: #F9FAFB;
+    text-align: center;
+    padding: 1rem 0;
 }
 
 /* Keyframes for Animations */
@@ -129,66 +122,7 @@ section {
     }
 }
 
-@keyframes zoomIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+/* Navbar Scroll Effect */
+header.shadow-lg {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
-```
-
-### JavaScript Code (No changes needed)
-The JavaScript code you provided already handles the smooth scrolling and fade-in effect using IntersectionObserver, which works perfectly with the CSS classes and animations defined above. Here it is for reference:
-
-```javascript name=script.js
-"use strict";
-
-document.addEventListener("DOMContentLoaded", function () {
-    var navLinks = document.querySelectorAll("nav ul li a");
-    var sections = document.querySelectorAll("section");
-    var observer;
-
-    // Smooth scrolling
-    for (var i = 0; i < navLinks.length; i++) {
-        navLinks[i].addEventListener("click", function (event) {
-            event.preventDefault();
-            var targetId = this.getAttribute("href").substring(1);
-            var targetSection = document.getElementById(targetId);
-
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 60,
-                    behavior: "smooth"
-                });
-            }
-        });
-    }
-
-    // Section fade-in effect
-    if (typeof IntersectionObserver !== "undefined") {
-        observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                }
-            });
-        }, { threshold: 0.3 });
-
-        for (var j = 0; j < sections.length; j++) {
-            observer.observe(sections[j]);
-        }
-    }
-
-    // Dynamic year update
-    var yearSpan = document.getElementById("currentYear");
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
-});
-```
-
-This combination of updated CSS and the provided JavaScript will create a lively, animated portfolio website.
