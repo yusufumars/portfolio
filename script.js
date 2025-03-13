@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var observer;
 
     // Smooth scrolling
-    for (var i = 0; i < navLinks.length; i++) {
+    for (var i = 0; navLinks.length > i; i++) {
         navLinks[i].addEventListener("click", function (event) {
             event.preventDefault();
             var targetId = this.getAttribute("href").substring(1);
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }, { threshold: 0.3 });
 
-        for (var j = 0; j < sections.length; j++) {
+        for (var j = 0; sections.length > j; j++) {
             observer.observe(sections[j]);
         }
     }
