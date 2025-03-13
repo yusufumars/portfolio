@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yusuf Umar - Product Owner Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-900">
     <!-- Header -->
-    <header class="bg-white shadow-md py-4 px-8">
+    <header class="bg-white shadow-md py-4 px-8 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">Yusuf Sule Umar</h1>
             <nav>
@@ -24,95 +26,71 @@
     </header>
 
     <!-- Hero Section with Profile Picture -->
-    <section class="container mx-auto my-12 px-8 text-center">
+    <section class="container mx-auto my-12 px-8 text-center fade-in">
         <img src="https://res.cloudinary.com/dasxwezqd/image/upload/v1741731346/hmjx1egpsk0j64xhoqwi.png" alt="Yusuf Umar" class="rounded-full mx-auto w-40 h-40 object-cover shadow-lg">
         <h2 class="text-4xl font-semibold mt-4">Driving Innovation in Product Development</h2>
         <p class="text-lg">Product Owner | Product Manager | Business Analyst</p>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="container mx-auto my-12 px-8">
+    <section id="about" class="container mx-auto my-12 px-8 fade-in">
         <h2 class="text-3xl font-semibold mb-4">About Me</h2>
-        <p class="text-lg">I am an experienced Product Owner and Product Manager with over 6 years of experience leading digital solutions. My expertise includes Agile methodologies, backlog management, stakeholder collaboration, and product discovery.</p>
+        <p class="text-lg">Seasoned Product Owner with 6+ years in spearheading digital transformations. Proficient in Agile methodologies, stakeholder collaboration, and delivering user-centric solutions that drive business growth.</p>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="container mx-auto my-12 px-8">
+    <!-- Experience Section with Timeline -->
+    <section id="experience" class="container mx-auto my-12 px-8 fade-in">
         <h2 class="text-3xl font-semibold mb-4">Experience</h2>
-        <div class="space-y-6">
-            <div class="bg-white shadow-lg p-6 rounded-lg">
+        <div class="timeline">
+            <div class="timeline-item">
                 <h3 class="text-xl font-bold">Senior Product Owner</h3>
-                <p class="text-gray-700">ABC Tech Solutions</p>
-                <p class="text-gray-700">Jan 2022 - Present</p>
-                <ul class="list-disc list-inside">
-                    <li>Led a cross-functional team of 10+ members to deliver innovative software solutions.</li>
-                    <li>Managed product backlog and prioritized features based on business value and customer feedback.</li>
-                    <li>Facilitated Agile ceremonies including sprint planning, reviews, and retrospectives.</li>
-                </ul>
+                <p class="text-gray-700">ABC Tech Solutions | Jan 2022 - Present</p>
+                <p>Led a cross-functional team to deliver innovative software solutions, increasing user engagement by 30%.</p>
             </div>
-            <div class="bg-white shadow-lg p-6 rounded-lg">
+            <div class="timeline-item">
                 <h3 class="text-xl font-bold">Product Manager</h3>
-                <p class="text-gray-700">XYZ Innovations</p>
-                <p class="text-gray-700">May 2018 - Dec 2021</p>
-                <ul class="list-disc list-inside">
-                    <li>Developed product roadmaps and defined product vision and strategy.</li>
-                    <li>Collaborated with stakeholders to gather requirements and translate them into user stories.</li>
-                    <li>Improved user engagement by 30% through the implementation of new features and enhancements.</li>
-                </ul>
-            </div>
-            <div class="bg-white shadow-lg p-6 rounded-lg">
-                <h3 class="text-xl font-bold">Business Analyst</h3>
-                <p class="text-gray-700">Techno Solutions</p>
-                <p class="text-gray-700">Jan 2016 - Apr 2018</p>
-                <ul class="list-disc list-inside">
-                    <li>Conducted market research and competitor analysis to inform product decisions.</li>
-                    <li>Created detailed business requirements documents and functional specifications.</li>
-                    <li>Worked closely with development teams to ensure successful implementation of solutions.</li>
-                </ul>
+                <p class="text-gray-700">XYZ Innovations | May 2018 - Dec 2021</p>
+                <p>Developed product roadmaps and defined product vision, achieving 20% YoY growth.</p>
             </div>
         </div>
     </section>
 
     <!-- Projects Section with Two Columns -->
-    <section id="projects" class="container mx-auto my-12 px-8">
+    <section id="projects" class="container mx-auto my-12 px-8 fade-in">
         <h2 class="text-3xl font-semibold mb-4">Projects</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="bg-white shadow-lg p-6 rounded-lg">
-                <img src="https://res.cloudinary.com/dasxwezqd/image/upload/v1741731675/ExJu1BDWgAE8niZ_vwreco.jpg" alt="Project 1" class="w-full h-48 object-cover rounded-lg">
+                <img src="project1.jpg" alt="HealthMate EMR" class="w-full h-48 object-cover rounded-lg">
                 <h3 class="text-xl font-bold mt-4">HealthMate EMR</h3>
                 <p>Developed a healthcare application improving patient data management.</p>
             </div>
             <div class="bg-white shadow-lg p-6 rounded-lg">
-                <img src="https://res.cloudinary.com/dasxwezqd/image/upload/v1741731956/Screenshot_2025-03-11_at_11.25.35_PM_uhq0fo.png" alt="Project 2" class="w-full h-48 object-cover rounded-lg">
-                <h3 class="text-xl font-bold mt-4">SAFapply | Online Application Management </h3>
+                <img src="project2.jpg" alt="SAFapply" class="w-full h-48 object-cover rounded-lg">
+                <h3 class="text-xl font-bold mt-4">SAFapply | Online Application Management</h3>
                 <p>Implemented Agile best practices to enhance SaaS product adoption.</p>
             </div>
         </div>
     </section>
 
     <!-- Certifications Section with Images -->
-    <section id="certifications" class="bg-white py-12 px-8">
+    <section id="certifications" class="bg-white py-12 px-8 fade-in">
         <div class="container mx-auto">
             <h2 class="text-3xl font-semibold mb-4">Certifications</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="text-center">
-                    <img src="https://res.cloudinary.com/dasxwezqd/image/upload/v1741732204/Screenshot_2025-03-11_at_11.28.51_PM_wbk2up.png" alt="PSPO Certification" class="w-24 h-24 mx-auto">
+                    <img src="pspo-cert.jpg" alt="PSPO Certification" class="w-24 h-24 mx-auto">
                     <p class="text-lg font-bold mt-2">Professional Scrum Product Owner (PSPO I)</p>
                 </div>
                 <div class="text-center">
-                    <img src="https://res.cloudinary.com/dasxwezqd/image/upload/v1741732212/Screenshot_2025-03-11_at_11.29.37_PM_uqwxvi.png" alt="Product Management Certification" class="w-24 h-24 mx-auto">
-                    <p class="text-lg font-bold mt-2">Product Manager Certificate - Product School</p>
-                </div>
-                <div class="text-center">
-                    <img src="https://res.cloudinary.com/dasxwezqd/image/upload/v1741732420/Screenshot_2025-03-11_at_11.33.26_PM_rj9yvb.png" alt="Agile BA Certification" class="w-24 h-24 mx-auto">
-                    <p class="text-lg font-bold mt-2">PRINCE2 Practitioner - Project Management</p>
+                    <img src="pm-cert.jpg" alt="Product Management Certification" class="w-24 h-24 mx-auto">
+                    <p class="text-lg font-bold mt-2">Certified Product Manager - Product School</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="container mx-auto my-12 px-8 text-center">
+    <section id="contact" class="container mx-auto my-12 px-8 text-center fade-in">
         <h2 class="text-3xl font-semibold mb-4">Contact Me</h2>
         <p>Email: <a href="mailto:yusufsuleumarrr@gmail.com" class="text-blue-500">yusufsuleumarrr@gmail.com</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/yusuf-umar-0b9419128/" class="text-blue-500">linkedin.com/in/yusuf-umar-0b9419128/</a></p>
