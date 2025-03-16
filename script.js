@@ -49,6 +49,5 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Console initialization check
     console.log('Portfolio initialized successfully');
 });
