@@ -1,44 +1,54 @@
-"use strict";
-
-document.addEventListener("DOMContentLoaded", function () {
-    var navLinks = document.querySelectorAll("nav ul li a");
-    var sections = document.querySelectorAll("section");
-    var observer;
-
-    // Smooth scrolling
-    for (var i = 0; i < navLinks.length; i++) {
-        navLinks[i].addEventListener("click", function (event) {
-            event.preventDefault();
-            var targetId = this.getAttribute("href").substring(1);
-            var targetSection = document.getElementById(targetId);
+document.addEventListener("DOMContentLoaded", function() {
+    // Smooth scrolling with header offset
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            const headerHeight = document.querySelector('header').offsetHeight;
 
             if (targetSection) {
                 window.scrollTo({
-                    top: targetSection.offsetTop - 60,
-                    behavior: "smooth"
+                    top: targetSection.offsetTop - headerHeight,
+                    behavior: 'smooth'
                 });
             }
         });
+    });
+
+    // Section fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, { 
+        threshold: 0.1,
+        rootMargin: '-50px 0px -50px 0px' 
+    });
+
+    document.querySelectorAll('.fade-in').forEach((element) => {
+        observer.observe(element);
+    });
+
+    // Dynamic footer year
+    const yearElement = document.getElementById('currentYear');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
     }
 
-    // Section fade-in effect
-    if (typeof IntersectionObserver !== "undefined") {
-        observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                }
-            });
-        }, { threshold: 0.3 });
+    // Project card hover effects
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-5px)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+        });
+    });
 
-        for (var j = 0; j < sections.length; j++) {
-            observer.observe(sections[j]);
-        }
-    }
-
-    // Dynamic year update
-    var yearSpan = document.getElementById("currentYear");
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
+    // Console initialization check
+    console.log('Portfolio initialized successfully');
 });
