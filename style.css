@@ -1,13 +1,10 @@
-/* Custom Font Classes */
 .font-clash-display { font-family: 'Clash Display', sans-serif; }
 .font-satoshi { font-family: 'Satoshi', sans-serif; }
 
-/* Section Spacing and Animation */
 section {
     scroll-margin-top: 100px;
 }
 
-/* Fade-in Animation */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -20,7 +17,6 @@ section {
     transform: translateY(0);
 }
 
-/* Custom Transitions */
 .transition-colors {
     transition: color 0.3s ease, background-color 0.3s ease;
 }
@@ -29,12 +25,10 @@ section {
     transition: box-shadow 0.3s ease;
 }
 
-/* Project Card Hover Effect */
 .project-card:hover {
     transform: translateY(-5px);
 }
 
-/* Mobile Menu (Add when ready) */
 .mobile-menu {
     display: none;
 }
